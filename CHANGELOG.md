@@ -2,6 +2,20 @@
 
 날짜는 YYYY-MM-DD. 버전은 의미 변화 기준. / Versions track meaningful changes. (KO / EN)
 
+## [0.10.0] - 2026-07-29
+
+규칙에 적용 범위(scope) 체계 도입, 레지스터별 오탐 수정, 범용 판정기(삭제 시험·기계 판정) 추가. / Introduced a per-rule scope system, fixed register-specific false positives, added generic tests (deletion test, mechanical check).
+
+- **추가/Added** "규칙 적용 범위" 절 — 표기 없는 규칙은 모든 레지스터에 적용, 면제는 규칙 단위로 해당 규칙에 명시. 블록의 레지스터가 달라도 전역 규칙은 그대로 적용. / New "rule scope" section — untagged rules apply to every register; exemptions are declared per rule; block-level register changes never suspend global rules.
+- **수정/Fixed** 레지스터별 오탐 5건 — 독자 참여 요청: 마케팅·SNS의 CTA는 정상, 공허한 연속 질문만 잡는다. 사물 주어: 개인 에세이·회고의 의도적 의인화 제외. 수사적 질문: 마케팅·SNS 훅 질문 면제. 불릿 나열 의존: 메모·요약, 기술 문서의 항목형 구조 면제. 과잉 경어: 이메일·공지의 정중한 어미 유지, 겹침만 축소. / Five register false positives — reader-engagement: marketing/SNS CTAs are legitimate, only hollow question chains fire; inanimate subject: deliberate personification in personal essays/retrospectives is exempt; rhetorical questions: marketing/SNS hooks exempt; bullet dependence: memo/summary and technical-doc list structures exempt; excessive honorifics: keep polite endings in email/notice, only reduce stacking.
+- **수정/Fixed** 수사적 질문 — 마케팅 카피·SNS의 훅 질문 면제. 0단계 표의 "짧은 훅 유지"와 충돌하던 것을 일관되게 정리. / Rhetorical questions — marketing/SNS hook questions exempted, resolving the conflict with the Step-0 register table ("keep short hooks").
+- **추가/Added** 삭제 시험 — 목록에 없는 표현의 범용 판정기. 지워서 잃는 정보가 없으면 slop, 있으면 보존(철칙 1 우선). / Deletion test — a generic judge for unlisted phrases: no information lost when deleted means slop; otherwise keep it (iron rule 1 wins).
+- **추가/Added** 사물 주어 기계 판정 — 무생물 주어+판단·발화·의도 동사면 걸림, 서술·범위 동사(다루다·포함하다·구성되다)는 정상. 고침 경로 2개(사람 주어·명사구) 명시. / Mechanical check for inanimate subjects — inanimate subject + judgment/speech/intent verb fires; scope verbs are normal formal prose. Two fix paths (human subject, noun phrase).
+- **추가/Added** 0단계 블록 단위 판정 — 인용 대사·공지 템플릿·인터뷰 발췌는 그 블록의 레지스터로 판정. / Block-level register judgment in Step 0 — quoted dialogue, notice templates, interview excerpts are judged by their own register.
+- **추가/Added** 서론 선언 승격 예외 — 선언이 글의 주제를 알리는 유일한 문장이면 삭제 대신 주장 문장으로 재작성. / Intro-declaration promotion exception — when the declaration is the only topic sentence, rewrite it as a claim instead of deleting.
+- **추가/Added** eval 6케이스 — 레지스터별 독자 질문(보고서 vs SNS), 사물 주어 정상·오탐 쌍, 반응 동사("시장은 반응했습니다") 판정, 서론 선언 승격. / Six new eval cases — reader questions by register (report vs SNS), inanimate-subject fire/no-fire pair, reaction-verb case ("the market reacted"), intro-declaration promotion.
+- **추가/Added** README 유지보수 원칙 — 규칙·예시를 고칠 때 그 규칙을 문서 자신에게 먼저 적용한다. After 예시 회귀가 가장 흔한 실패다. / README maintenance principle — apply each rule to this document itself first; regressing After examples is the most common failure.
+
 ## [0.9.0] - 2026-07-06
 
 생성 모드 도입, 3중 반복 구조 통합, 채점표를 fail 조건으로 교체, eval 확장. / Generation mode; consolidated triple-redundant structure; replaced scoring rubric with fail conditions; expanded evals.
