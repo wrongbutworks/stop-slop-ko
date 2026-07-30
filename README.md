@@ -58,6 +58,8 @@
 
 스킬 자체 평가 데이터셋은 [`evals/evals.json`](evals/evals.json)(현재 18케이스 — 레지스터별 면제/발동 쌍 케이스, 정보 보존 검증 포함), 스킬 발동(trigger) 데이터셋은 [`evals/trigger_eval.json`](evals/trigger_eval.json)에서 볼 수 있다.
 
+**2026-07 벤치마크 (0.11.0 시점).** 케이스 10종(교정 8·생성 2, SNS CTA 오탐 억제 시험 포함)을 신규 작성하고, 실행과 채점을 분리했다 — 채점은 파이썬 어설션 69개와 조건을 모르는 블라인드 A/B 판정. 결과: 규칙 준수 with 100% vs without 94.2%, 블라인드 품질 5:5. without의 실패는 양비론 골격, 무출처 권위 호소, 생성 시 수치 발명에 몰렸다 — 모델 기본기가 올라온 시대에 스킬의 가치가 남는 지점이다. 방법·한계는 [`evals/benchmark/RESULTS.md`](evals/benchmark/RESULTS.md).
+
 아래는 0.4.0 시점 실험 기록이다. 테스트 케이스 5개를 Claude로 설계하고 실행했다. 각 케이스는 스킬 적용(with)과 미적용(without) 결과를 어설션 기반으로 비교한다.
 
 | 케이스 | 테스트 항목 | with | without |
