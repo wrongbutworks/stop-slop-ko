@@ -2,6 +2,17 @@
 
 날짜는 YYYY-MM-DD. 버전은 의미 변화 기준. / Versions track meaningful changes. (KO / EN)
 
+## [0.11.3] - 2026-07-30
+
+전체 검토 반영 — 대화체 레지스터 면제 2건(오탐 수정), 상호 참조·형식·README 구조 정리. / Full-review pass — two conversational-register exemptions (false-positive fixes), cross-reference, formatting, and README structure cleanup.
+
+- **수정/Fixed** 수사적 질문·독자 참여 요청 면제에 대화체 칼럼·블로그 추가 — 훅 질문과 말 걸기('이런 적 있죠?')는 그 레지스터의 문체로 유지하고, 연속 반복만 잡는다. / Rhetorical-question and reader-engagement exemptions now cover conversational columns/blogs — hook questions and direct address are kept as that register's voice; only consecutive repetition fires.
+- **수정/Fixed** 승격 예외 상호 참조 복구 — 서론 선언 예외 라벨을 "유일한 주제 문장(승격)"으로 바꿔 표 slop 절의 참조("서론 선언 승격 예외")가 실제 라벨과 맞게 했다. / Restored the promotion cross-reference — the intro-declaration exception label now contains "promotion", matching the table-slop section's reference.
+- **수정/Fixed** 규칙 적용 범위 절의 예시를 면제·전역 두 방향 쌍으로 재작성. / The rule-scope example now shows both directions: a per-rule exemption and a global rule that still applies.
+- **변경/Changed** 표·목록 예고 문장 절을 다른 절과 같은 라벨 형식(설명/대신/예외/우선순위)으로 줄 분리 — 내용 변경 없음. / The table lead-in section reformatted into the shared label layout (description / instead / exception / precedence) with no content change.
+- **변경/Changed** README 정리 — 배경 절 표기 정리(선행 공백·이중 공백·대문자 Slop)와 예시 순서를 slop 먼저·규범(부록) 뒤로 교체, 0.4.0 실험 기록을 details 블록으로 접음, 주요 패턴 목록에서 판정 원칙 2건 분리, 사용법 절의 실험 서술을 CHANGELOG 참조로 축소. / README cleanup — background-section notation fixes and example reordering (slop first, appendix norms after), the 0.4.0 experiment folded into a details block, the two judgment principles moved out of the pattern list, and the usage section's experiment narration reduced to a CHANGELOG reference.
+- **추가/Added** eval 2케이스 — 대화체 블로그의 훅 질문·말 걸기 유지(면제 발동), 격식 보고서의 같은 유형 문장 삭제(면제 미적용). (총 21케이스) / Two eval cases — conversational-blog hook and direct address survive (exemption fires); the same sentence types in a formal report are removed (no exemption). 21 cases total.
+
 ## [0.11.2] - 2026-07-30
 
 문서 자체를 스킬 규칙으로 전수 감사해 slop 제거. / Full self-audit of SKILL.md and README against the skill's own rules; slop removed from the documents' own voice.
