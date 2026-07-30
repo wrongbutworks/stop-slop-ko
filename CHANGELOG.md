@@ -2,6 +2,14 @@
 
 날짜는 YYYY-MM-DD. 버전은 의미 변화 기준. / Versions track meaningful changes. (KO / EN)
 
+## [0.11.0] - 2026-07-30
+
+표·목록 주변 slop 3패턴 추가 — 산문 중심이던 패턴 목록을 실무 문서(기획서·보고서·위키)로 확장. 기획서·명세 레지스터 신설, 불릿 나열 의존 면제에 기획서·명세 반영. / Three new patterns for slop around tables and lists, extending the prose-centric pattern list to workplace documents (specs, reports, wikis); new spec-document register, also reflected in the bullet-list-dependence exemption.
+
+- **추가/Added** "표·목록 주변 slop" 절(구조 단위) — ① 표·목록 예고 문장: 삭제, 단 표의 정체를 알리는 유일한 단서면 소제목으로 승격(서론 선언 승격 예외와 같은 구조). ② 표 셀 문단화: 셀에는 핵심 구절만 남기고 서술은 표 아래 본문으로 이동(철칙 1 우선). ③ 표·산문 이중 서술: 표만 남기고, 산문에만 있는 정보는 보존. / New "slop around tables and lists" section (structural patterns) — (1) table lead-in sentences: delete, or promote to a heading when the sentence is the only clue to the table's identity (same structure as the intro-declaration promotion exception); (2) prose-paragraph cells: keep a key phrase in the cell, move the narration below the table (iron rule 1 wins); (3) table–prose double narration: keep the table only, preserving information found solely in the prose.
+- **추가/Added** 0단계 레지스터 표에 "기획서·명세" 행 — 신호: 요구사항·규칙 서술, 표·목록 중심, 단정형 어미. 교정 후에도 표·목록 구조와 단정형 명세 문장을 유지. / New "spec document" row in the Step-0 register table — signals: requirement/rule statements, table/list-centric, declarative endings; keep the table/list structure and declarative spec sentences after editing.
+- **추가/Added** eval 4케이스 — 표 예고 문장 삭제, 유일한 단서의 소제목 승격, 셀 문단화의 본문 이동(정보 보존), 표·산문 이중 서술 해소. / Four new eval cases — table lead-in deletion, sole-identity promotion to a heading, cell-prose relocation with information preserved, table–prose double narration resolved.
+
 ## [0.10.0] - 2026-07-29
 
 규칙에 적용 범위(scope) 체계 도입, 레지스터별 오탐 수정, 범용 판정기(삭제 시험·기계 판정) 추가. / Introduced a per-rule scope system, fixed register-specific false positives, added generic tests (deletion test, mechanical check).
