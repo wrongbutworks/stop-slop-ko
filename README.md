@@ -20,6 +20,8 @@
 
 두 가지 모드로 작동한다. **교정 모드**는 이미 쓰인 글에서 slop을 지우고, **생성 모드**는 한국어 산문을 새로 쓸 때 같은 패턴을 애초에 쓰지 않는다. slop은 고치는 것보다 안 만드는 쪽이 싸다.
 
+규칙에는 적용 범위가 있다. 0단계에서 원문의 레지스터(격식 보고서·이메일·마케팅 카피·기획서 등)를 파악하고, 규칙은 기본 전역이되 레지스터별 면제가 해당 규칙에 명시된다. SNS의 행동 유도 문구, 이메일의 정중한 어미는 잡지 않는다.
+
 패턴 표기:
 - **[규범]** — 국립국어원 규범으로 확인 가능한 것
 - **[관찰]** — LLM 출력에서 Claude가 반복 분류한 패턴
@@ -30,7 +32,8 @@
 
 - **말하기**: 서론 선언, 단정 회피 어미, 공허한 결론, 메타 강조
 - **구체성**: 사물 주어, 공허한 수식어, 과장 형용사, 막연한 권위 호소
-- **구조/리듬**: 접속사 남발, 이분법·양비론 대조, 동어반복, 메타담화, 번호 열거, 단락 리듬, 줄표 남용, 불릿 나열 의존
+- **구조/리듬**: 접속사 남발, 이분법·양비론 대조, 동어반복, 메타담화, 번호 열거, 단락 리듬, 줄표 남용, 불릿 나열 의존, 표·목록 주변 slop(예고 문장·셀 문단화·이중 서술)
+- **삭제 시험**: 목록에 없는 표현은 지워보고 판정한다. 잃는 정보가 없으면 slop이다.
 - **과교정 방지**: 문장을 모두 짧은 단정문으로만 바꾸면 그 자체가 새로운 slop이 된다. 핵심은 다양성이다.
 
 ---
@@ -46,14 +49,16 @@
 단일 SKILL.md 구조다. reference 분리본으로 20회 실행 테스트했을 때 Claude가 하위 파일을 한 번도 읽지 않아(0/20) 병합했다 (CHANGELOG 0.4.0 참고).
 
 - **Claude Code:** `skills/` 폴더 안에 이 폴더를 넣는다.
-- **Claude Cowork:** `.skill` 파일을 다운받아 설치한다.
+- **Claude Cowork:** 저장소를 클론하거나 `SKILL.md`를 받아 스킬 폴더에 넣는다.
 - **스킬 없이:** `SKILL.md` 전체를 프롬프트에 붙여 넣는다.
 
 ---
 
 ## 검증 및 한계
 
-테스트 케이스 5개를 Claude로 설계하고 실행했다. 각 케이스는 스킬 적용(with)과 미적용(without) 결과를 어설션 기반으로 비교한다. 스킬 자체 평가 데이터셋은 [`evals/evals.json`](evals/evals.json), 스킬 발동(trigger) 데이터셋은 [`evals/trigger_eval.json`](evals/trigger_eval.json)에서 볼 수 있다.
+스킬 자체 평가 데이터셋은 [`evals/evals.json`](evals/evals.json)(현재 18케이스 — 레지스터별 면제/발동 쌍 케이스, 정보 보존 검증 포함), 스킬 발동(trigger) 데이터셋은 [`evals/trigger_eval.json`](evals/trigger_eval.json)에서 볼 수 있다.
+
+아래는 0.4.0 시점 실험 기록이다. 테스트 케이스 5개를 Claude로 설계하고 실행했다. 각 케이스는 스킬 적용(with)과 미적용(without) 결과를 어설션 기반으로 비교한다.
 
 | 케이스 | 테스트 항목 | with | without |
 |---|---|---|---|
@@ -102,7 +107,7 @@ MIT — [LICENSE](LICENSE)
 
 `stop-slop-ko` is a Claude Skill (packaged prompt guideline) designed to eliminate AI-generated writing style (often referred to as "AI slop") from Korean prose. 
 
-While the original [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya focuses on English writing, this repository addresses unique Korean LLM artifacts, such as double passives, English-to-Korean translationese particles, excessive hedging/vagueness, and artificial politeness.
+While the original [stop-slop](https://github.com/hardikpandya/stop-slop) by Hardik Pandya focuses on English writing, this repository addresses unique Korean LLM artifacts, such as double passives, English-to-Korean translationese particles, excessive hedging/vagueness, and artificial politeness. Rules are register-aware in scope (per-register exemptions for emails, SNS copy, spec documents), and table-adjacent slop patterns cover workplace documents.
 
 ### Core Goals
 - **De-slop Korean LLM Output**: Detect and remove typical AI clichés and awkward stylistic traits observed in Korean LLM responses.
