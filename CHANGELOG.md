@@ -2,6 +2,13 @@
 
 날짜는 YYYY-MM-DD. 버전은 의미 변화 기준. / Versions track meaningful changes. (KO / EN)
 
+## [0.11.1] - 2026-07-30
+
+줄표 규칙의 임계와 삭제 우선 충돌 해소. / Resolves the conflict between the em-dash threshold and the delete-first instruction.
+
+- **수정/Fixed** 줄표 남용 기준에 우선순위 명시 — 문단당 1개 이하(임계) 안의 줄표는 남기고, 임계를 넘은 줄표만 지운다. 2026-07 벤치마크에서 스킬 적용 조건이 임계 안의 줄표를 지워 블라인드 판정 감점을 받은 실측(evals/benchmark/RESULTS.md)에 따른 수정. (#3) / Clarified precedence in the em-dash rule — dashes within the one-per-paragraph threshold stay; only excess dashes are deleted. Fixes the over-correction measured in the 2026-07 benchmark, where the skill-applied condition deleted an in-threshold dash and lost the blind judgment. (#3)
+- **추가/Added** 회귀 방지 eval 1케이스 — 임계 안의 줄표가 살아남아야 통과. (총 19케이스) / One regression eval — an in-threshold dash must survive editing (19 cases total).
+
 ## [0.11.0] - 2026-07-30
 
 표·목록 주변 slop 3패턴 추가 — 산문 중심이던 패턴 목록을 실무 문서(기획서·보고서·위키)로 확장. 기획서·명세 레지스터 신설, 불릿 나열 의존 면제에 기획서·명세 반영. / Three new patterns for slop around tables and lists, extending the prose-centric pattern list to workplace documents (specs, reports, wikis); new spec-document register, also reflected in the bullet-list-dependence exemption.
