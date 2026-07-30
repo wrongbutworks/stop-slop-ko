@@ -2,6 +2,14 @@
 
 날짜는 YYYY-MM-DD. 버전은 의미 변화 기준. / Versions track meaningful changes. (KO / EN)
 
+## [0.11.2] - 2026-07-30
+
+문서 자체를 스킬 규칙으로 전수 감사해 slop 제거. / Full self-audit of SKILL.md and README against the skill's own rules; slop removed from the documents' own voice.
+
+- **수정/Fixed** README 벤치마크 문단 재작성 — 문단당 줄표 2개(자기 임계 위반), "조건을 모르는 블라인드" 동어반복, "~한 시대에 가치가 남는 지점" 수사 제거. / Rewrote the benchmark paragraph in README — two em dashes in one paragraph (violating the skill's own threshold), redundant phrasing, and a rhetorical closer removed.
+- **수정/Fixed** SKILL.md 문서 목소리의 대조 구문 2건을 직접 서술로("점수를 매기지 않는다", "지어내는 순간 날조가 된다"), 철칙 1 재진술 1건을 참조로, 목록 예고 문장 1건 삭제. 남긴 대조 구문 2건(레지스터 파괴·다양성)은 대비가 논점인 예외로 판정. / Two antithesis constructions in the document's own voice rewritten as direct statements, one restatement of iron rule 1 replaced with a reference, one list lead-in removed; two remaining contrasts kept under the "contrast is the point" exception.
+- **수정/Fixed** README eval 케이스 수 18 → 19 (0.11.1 회귀 케이스 반영 누락). / README eval count corrected to 19.
+
 ## [0.11.1] - 2026-07-30
 
 줄표 규칙의 임계와 삭제 우선 충돌 해소. / Resolves the conflict between the em-dash threshold and the delete-first instruction.
